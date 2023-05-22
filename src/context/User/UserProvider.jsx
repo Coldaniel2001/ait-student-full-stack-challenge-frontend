@@ -28,7 +28,6 @@ const UserProvider = ({ children }) => {
                         }
                     );
                     const data = await response.json();
-
                     if (data.status === "OK") {
                         setUserLogged(data.newUser);
                     }
@@ -54,7 +53,7 @@ const UserProvider = ({ children }) => {
                         );
                         const data = await response.json();
                     if (data.status === "OK") {
-                        setUserLogged(data.user);
+                        setUserLogged(data.user[0]);
                     }
 
                 }
