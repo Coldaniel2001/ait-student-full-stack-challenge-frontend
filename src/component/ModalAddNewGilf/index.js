@@ -1,0 +1,1 @@
+export { default as ModalAddNewGilf } from './ModalAddNewGilf';
