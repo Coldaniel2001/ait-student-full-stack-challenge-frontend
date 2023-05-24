@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -13,7 +14,7 @@ const NavBar = () => {
 	const { userLogged } = useContext(UserContext)
 	const [uploadGilf, setUploadGilf] = useState(false)
 
-	const handleOpenModal = ()=>{
+	const handleOpenModal = () => {
 		setUploadGilf(true)
 	}
 	return (
@@ -23,12 +24,17 @@ const NavBar = () => {
 				<AiOutlineSearch className='bg-green-500 h-[70%] w-[30%]' />
 			</div>
 			<div className=' flex justify-around w-[40%]'>
-				<span>Main First</span>
-				<span>Main Second</span>
-				<span>Main Third</span>
+				<NavLink className={({ isActive }) => isActive && "text-yellow-500"}
+					to="/home"><span>My Gilf</span></NavLink>
+				<NavLink className={({ isActive }) => isActive && "text-yellow-500"}
+					to="/pokemon"><span>Pokemon</span></NavLink>
+				<NavLink className={({ isActive }) => isActive && "text-yellow-500"}
+					to="/dragonball"><span>Dragon Ball</span></NavLink>
+				<NavLink className={({ isActive }) => isActive && "text-yellow-500"}
+					to="/onepiece"><span>One Piece</span></NavLink>
 			</div>
 			<div className='flex justify-center bg-blue-500 h-[100%] w-[10%]'>
-				<button onClick={()=>handleOpenModal()}>Upload</button>
+				<button onClick={() => handleOpenModal()}>Upload</button>
 			</div>
 			<div className='flex justify-center w-[20%]'>
 				<FiLogOut className='w-[3rem] h-[70%] rounded-[0.5rem] cursor-pointer'

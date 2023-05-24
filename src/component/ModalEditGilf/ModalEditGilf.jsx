@@ -7,24 +7,18 @@ import GilfContext from '../../context/Gilf/GilfContext';
 
 
 
-const ModalAddNewGilf = ({ setUploadGilf }) => {
+const ModalEditGilf = ({ setUploadGilf, gilfValue, setGilfValue }) => {
 
-	const [inputValue,setInputValue]= useState({
-		nameGilf:"",
-		linkGilf:"",
-		genre:""
-	})
-	
-	const {addGilf}=useContext(GilfContext)
+console.log(gilfValue)
+	const {editGilf } = useContext(GilfContext)
 
 	const handleInput = (event) => {
-		setInputValue({...inputValue, [event.target.name]:event.target.value})
-	
+		setGilfValue({ ...gilfValue, [event.target.name]: event.target.value })
 	}
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		setUploadGilf(false)
-		addGilf(inputValue)
+		editGilf(gilfValue)
 	}
 
 
@@ -33,7 +27,7 @@ const ModalAddNewGilf = ({ setUploadGilf }) => {
 		<div className="fixed z-50 inset-0 overflow-y-auto bg-black/70">
 			<div className="flex items-center justify-center min-h-screen">
 				<div className="flex flex-col justify-center bg-gradient-to-tr from-black via-[green] to-[green] rounded-lg shadow-lg p-6 w-[90%] sm:w-2/3 md:w-3/6 lg:w-2/6 2xl:w-[1/4] border-2 border-white">
-					<p className='font-bold text-3xl mx-auto'>Add gilf</p>
+					<p className='font-bold text-3xl mx-auto'>Edit gilf</p>
 					<form onSubmit={handleSubmit} enctype="multipart/form-data">
 						<div className='flex flex-col mt-4'>
 							<label className='text-xl font-bold'>Name gilf</label>
@@ -41,7 +35,7 @@ const ModalAddNewGilf = ({ setUploadGilf }) => {
 								type="text"
 								name="nameGilf"
 								onChange={handleInput}
-								value={inputValue.nameGilf}
+								value={gilfValue.nameGilf}
 								required
 							/>
 						</div>
@@ -49,9 +43,9 @@ const ModalAddNewGilf = ({ setUploadGilf }) => {
 							<label className='flex items-center text-xl font-bold'>Link  gilf  <>&nbsp;&nbsp;	</><AiOutlineLink /></label>
 							<input className='rounded h-[2rem] text-black'
 								type="text"
-								name="linkGilf"
+								name="picture"
 								onChange={handleInput}
-								value={inputValue.linkGilf}
+								value={gilfValue.picture}
 								required
 							/>
 						</div>
@@ -59,7 +53,7 @@ const ModalAddNewGilf = ({ setUploadGilf }) => {
 							<label className='text-xl font-bold'>Genre</label>
 							<select className='text-black h-[2rem] rounded'
 								name="genre"
-								value={inputValue.genre}
+								value={gilfValue.genre}
 								onChange={handleInput}
 								required
 							>
@@ -87,4 +81,4 @@ const ModalAddNewGilf = ({ setUploadGilf }) => {
 	)
 }
 
-export default ModalAddNewGilf
+export default ModalEditGilf

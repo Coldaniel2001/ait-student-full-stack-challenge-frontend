@@ -3,7 +3,6 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 import RoutesPath from './routes/RoutesPath';
 
-import UserProvider from './context/User/UserProvider';
 
 function App() {
   return (
@@ -16,10 +15,8 @@ function App() {
         }}
         audience={process.env.REACT_APP_AUTH0_AUDIENCE}
       >
-        <UserProvider>
           <Toaster />
           <RoutesPath />
-        </UserProvider>
       </Auth0Provider>
     </>
   );
