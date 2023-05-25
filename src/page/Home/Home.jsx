@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { MdDeleteForever } from 'react-icons/md';
 import { AiOutlineEdit } from 'react-icons/ai';
@@ -23,7 +23,7 @@ const Home = () => {
 
     const navigate = useNavigate()
 
-    if(!userLogged){
+    if (!userLogged) {
         navigate('/')
     }
 
@@ -60,48 +60,48 @@ const Home = () => {
             <label>NameGif<input onChange={handleSearchFilter} type='radio' name="filter" value='nameGif' /></label>
             <label>Picture<input onChange={handleSearchFilter} type='radio' name="filter" value='picture' /> </label>
             <label>Genre<input onChange={handleSearchFilter} type='radio' name="filter" value='genre' /></label>
-            <div className='bg-yellow-500 grid grid-cols-4 gap-4 w-full h-screen '>
+            <div className='bg-yellow-500 grid grid-cols-4 gap-4 w-full h-screen overflow-x-scroll scrollbar-hide'>
 
                 {(filterNameGilfMyGilf?.length && searchFilter === "nameGif") || (filterGenreMyGilf?.length && searchFilter === "genre") || (filterPictureMyGilf?.length && searchFilter === "picture") ? (
                     searchFilter === "nameGif" ? filterNameGilfMyGilf?.map((nameGilf) => {
                         return (
-                            <div className='flex justify-center items-center flex-col w-[90%] h-[100%] border-[1px] border-black' key={nameGilf?._id} >
-                                <img className='w-[30%] h-[80%]' src={nameGilf?.picture} alt="my gilf" />
-                                <span>{nameGilf?.nameGilf}</span>
-                                <div className='flex'>
-                                    <MdDeleteForever onClick={() => handleDelete(nameGilf)} />
-                                    <AiOutlineEdit onClick={() => handleModalEdit(nameGilf)} />
-                                </div>
+                            <div className='flex justify-center items-center flex-col w-[20rem] h-[20rem] border-[1px] border-black' key={nameGilf._id} >
+                            <img className='w-[75%] h-[80%]' src={nameGilf.picture} alt="my gilf" />
+                            <span>{nameGilf.nameGilf}</span>
+                            <div className='flex'>
+                                <MdDeleteForever onClick={() => handleDelete(nameGilf)} />
+                                <AiOutlineEdit onClick={() => handleModalEdit(nameGilf)} />
                             </div>
+                        </div>
                         )
                     }) : searchFilter === "genre" ? filterGenreMyGilf?.map((nameGilf) => {
                         return (
-                            <div className='flex justify-center items-center flex-col w-[90%] h-[100%] border-[1px] border-black' key={nameGilf?._id} >
-                                <img className='w-[30%] h-[80%]' src={nameGilf?.picture} alt="my gilf" />
-                                <span>{nameGilf?.nameGilf}</span>
+                            <div className='flex justify-center items-center flex-col w-[20rem] h-[20rem] border-[1px] border-black' key={nameGilf._id} >
+                                <img className='w-[75%] h-[80%]' src={nameGilf.picture} alt="my gilf" />
+                                <span>{nameGilf.nameGilf}</span>
                                 <div className='flex'>
                                     <MdDeleteForever onClick={() => handleDelete(nameGilf)} />
                                     <AiOutlineEdit onClick={() => handleModalEdit(nameGilf)} />
                                 </div>
                             </div>
                         )
-                    }): filterPictureMyGilf.map((nameGilf) => {
-                            return (
-                                <div className='flex justify-center items-center flex-col w-[90%] h-[100%] border-[1px] border-black' key={nameGilf?._id} >
-                                    <img className='w-[30%] h-[80%]' src={nameGilf?.picture} alt="my gilf" />
-                                    <span>{nameGilf?.nameGilf}</span>
-                                    <div className='flex'>
-                                        <MdDeleteForever onClick={() => handleDelete(nameGilf)} />
-                                        <AiOutlineEdit onClick={() => handleModalEdit(nameGilf)} />
-                                    </div>
+                    }) : filterPictureMyGilf.map((nameGilf) => {
+                        return (
+                            <div className='flex justify-center items-center flex-col w-[20rem] h-[20rem] border-[1px] border-black' key={nameGilf._id} >
+                                <img className='w-[75%] h-[80%]' src={nameGilf.picture} alt="my gilf" />
+                                <span>{nameGilf.nameGilf}</span>
+                                <div className='flex'>
+                                    <MdDeleteForever onClick={() => handleDelete(nameGilf)} />
+                                    <AiOutlineEdit onClick={() => handleModalEdit(nameGilf)} />
                                 </div>
-                            )
-                        })
+                            </div>
+                        )
+                    })
                 ) : (
                     filterMyGilf.map((gilf) => {
                         return (
-                            <div className='flex justify-center items-center flex-col w-[90%] h-[100%] border-[1px] border-black' key={gilf._id} >
-                                <img className='w-[30%] h-[80%]' src={gilf.picture} alt="my gilf" />
+                            <div className='flex justify-center items-center flex-col w-[20rem] h-[20rem] border-[1px] border-black' key={gilf._id} >
+                                <img className='w-[75%] h-[80%]' src={gilf.picture} alt="my gilf" />
                                 <span>{gilf.nameGilf}</span>
                                 <div className='flex'>
                                     <MdDeleteForever onClick={() => handleDelete(gilf)} />

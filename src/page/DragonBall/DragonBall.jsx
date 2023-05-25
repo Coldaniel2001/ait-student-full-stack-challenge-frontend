@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import GilfContext from '../../context/Gilf/GilfContext'
 import UserContext from '../../context/User/UserContext';
@@ -15,7 +15,7 @@ const DragonBall = () => {
 
     const navigate = useNavigate()
 
-    if(!userLogged){
+    if (!userLogged) {
         navigate('/')
     }
 
@@ -38,28 +38,28 @@ const DragonBall = () => {
             <h2 className='text-[10rem] font-bold'>One Piece</h2>
             <label>NameGif<input onChange={handleSearchFilter} type='radio' name="filter" value='nameGif' /></label>
             <label>Picture<input onChange={handleSearchFilter} type='radio' name="filter" value='picture' /> </label>
-            <div className='bg-yellow-500 grid grid-cols-4 gap-4 w-full h-screen '>
-                {(filterNameGilfDragonBallGilf?.length && searchFilter === "nameGif")  || (filterPictureDragonBallGilf?.length && searchFilter === "picture") ? (
+            <div className='bg-yellow-500 grid grid-cols-4 gap-4 w-full h-screen  overflow-x-scroll scrollbar-hide '>
+                {(filterNameGilfDragonBallGilf?.length && searchFilter === "nameGif") || (filterPictureDragonBallGilf?.length && searchFilter === "picture") ? (
                     searchFilter === "nameGif" ? filterNameGilfDragonBallGilf?.map((nameGilf) => {
                         return (
-                            <div className='flex justify-center items-center flex-col w-[90%] h-[100%] border-[1px] border-black' key={nameGilf?._id} >
-                                <img className='w-[30%] h-[80%]' src={nameGilf?.picture} alt="my gilf" />
-                                <span>{nameGilf?.nameGilf}</span>
+                            <div className='flex justify-center items-center flex-col w-[20rem] h-[20rem] border-[1px] border-black' key={nameGilf._id} >
+                                <img className='w-[75%] h-[80%]' src={nameGilf.picture} alt="my gilf" />
+                                <span>{nameGilf.nameGilf}</span>
                             </div>
                         )
-                    }) :  filterPictureDragonBallGilf.map((nameGilf) => {
+                    }) : filterPictureDragonBallGilf.map((nameGilf) => {
                         return (
-                            <div className='flex justify-center items-center flex-col w-[90%] h-[100%] border-[1px] border-black' key={nameGilf?._id} >
-                                <img className='w-[30%] h-[80%]' src={nameGilf?.picture} alt="my gilf" />
-                                <span>{nameGilf?.nameGilf}</span>
+                            <div className='flex justify-center items-center flex-col w-[20rem] h-[20rem] border-[1px] border-black' key={nameGilf._id} >
+                                <img className='w-[75%] h-[80%]' src={nameGilf.picture} alt="my gilf" />
+                                <span>{nameGilf.nameGilf}</span>
                             </div>
                         )
                     })
                 ) : (
                     filterDragonBallGilf.map((gilf) => {
                         return (
-                            <div className='flex justify-center items-center flex-col w-[90%] h-[100%] border-[1px] border-black' key={gilf._id} >
-                                <img className='w-[30%] h-[80%]' src={gilf.picture} alt="my gilf" />
+                            <div className='flex justify-center items-center flex-col w-[20rem] h-[20rem] border-[1px] border-black' key={gilf._id} >
+                                <img className='w-[75%] h-[80%]' src={gilf.picture} alt="my gilf" />
                                 <span>{gilf.nameGilf}</span>
                             </div>
                         )
