@@ -9,51 +9,52 @@ import DragonBall from '../page/DragonBall/DragonBall'
 
 import NavBar from '../component/NavBar/NavBar'
 
-import RoutesPrivate from './RoutesPrivate'
 import LoginPrivate from './LoginPrivate'
 
 import UserProvider from '../context/User/UserProvider'
 import GilfProvider from '../context/Gilf/GilfProvider'
-
+import SearchProvider from '../context/Search/SearchProvider'
 
 const RoutesPath = () => {
     return (
         <UserProvider>
             <GilfProvider>
-                <BrowserRouter>
-                    <Routes>
-                        <Route path='/' element={
-                            <LoginPrivate>
-                                <Login />
-                            </LoginPrivate>
-                        } />
-                        <Route path='/home' element={
-                            <RoutesPrivate>
-                                <NavBar />
-                                <Home />
-                            </RoutesPrivate>
-                        } />
-                        <Route path='/onepiece' element={
-                            <RoutesPrivate>
-                                <NavBar />
-                                <OnePiece />
-                            </RoutesPrivate>
-                        } />
-                        <Route path='/pokemon' element={
-                            <RoutesPrivate>
-                                <NavBar />
-                                <Pokemon />
-                            </RoutesPrivate>
-                        } />
-                        <Route path='/dragonball' element={
-                            <RoutesPrivate>
-                                <NavBar />
-                                <DragonBall />
-                            </RoutesPrivate>
-                        } />
-                        <Route path='*' element={<Navigate to={'/'} />} />
-                    </Routes>
-                </BrowserRouter>
+                <SearchProvider>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path='/' element={
+                                <LoginPrivate>
+                                    <Login />
+                                </LoginPrivate>
+                            } />
+                            <Route path='/home' element={
+                                <>
+                                    <NavBar />
+                                    <Home />
+                                </>
+                            } />
+                            <Route path='/onepiece' element={
+                                <>
+                                    <NavBar />
+                                    <OnePiece />
+                                </>
+                            } />
+                            <Route path='/pokemon' element={
+                                <>
+                                    <NavBar />
+                                    <Pokemon />
+                                </>
+                            } />
+                            <Route path='/dragonball' element={
+                                <>
+                                    <NavBar />
+                                    <DragonBall />
+                                </>
+                            } />
+                            <Route path='*' element={<Navigate to={'/'} />} />
+                        </Routes>
+                    </BrowserRouter>
+                </SearchProvider>
             </GilfProvider>
         </UserProvider>
     )
